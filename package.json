@@ -9,7 +9,12 @@
     "preview": "astro preview",
     "astro": "astro"
   },
+  "devDependencies": {
+    "@vitejs/plugin-basic-ssl": "^1.0.1",
+    "astro": "^2.4.5"
+  },
   "dependencies": {
-    "astro": "^2.4.1"
+    "@storyblok/astro": "^2.3.1",
+    "vite": "^4.3.5"
   }
 }
