@@ -15,6 +15,6 @@
   },
   "dependencies": {
     "@storyblok/astro": "^2.3.1",
-    "vite": "^4.3.5"
+    "vite": "^4.3.7"
   }
 }

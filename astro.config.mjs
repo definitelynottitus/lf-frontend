@@ -4,7 +4,7 @@ import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
 
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
-
+console.log(env);
 // https://astro.build/config
 export default defineConfig({
     integrations: [
