@@ -1,0 +1,36 @@
+---
+import { storyblokEditable} from '@storyblok/astro'
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: 'employee',
+})
+
+const employees = data.stories.map(story => {
+  return {
+    employee_name: story.content.employee_name,
+    social_media_url: story.content.social_media_handle?.url,
+    social_media_platform: story.content.social_media_handle.title,
+    employee_position: story.content.employee_position,
+    employee_photo: story.content.employee_photo?.filename,
+  }
+})
+
+const { blok } = Astro.props
+---
+
+<ul {...storyblokEditable(blok)}>
+    {employees.map( employee => (
+        <li style="list-style-type:none">
+            <img src={employee.employee_photo} alt="" width="200" height="200">
+            <div class="flex">
+                <h3>{employee.employee_name}</h3>
+                <a href={employee.social_media_url} target="_blank">{employee.social_media_platform}</a>
+            </div>
+            <p>{employee.employee_position}</p>
+        </li>
+    ))}
+</ul>

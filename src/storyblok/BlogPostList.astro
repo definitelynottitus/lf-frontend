@@ -24,8 +24,8 @@ const { blok } = Astro.props
 <ul {...storyblokEditable(blok)}>
   {posts.map(post => (
     <li>
-      <time>{post.date}</time>
-      <a href={`../${post.slug}`}>{post.title}</a>
+      <h4><a href={`../${post.slug}`}>{post.title}</a></h4>
+      <time>{new Date(post.date).toDateString()}</time>
       <p>{post.description}</p>
     </li>
   ))}

@@ -1,10 +1,23 @@
 ---
+import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/employee/home', {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const content = data.story.content;
+
 const pageTitle = "About | Ligher Foodprint"
 ---
 
 <BaseLayout pageTitle = {pageTitle}>
-    <h1 class="mission-statement">Our mission is to integrate the climate into our everyday food choices.</h1>
+    <Hero 
+        headline="Our mission is to integrate the climate into our everyday food choices." 
+        img="/aboutpagehero1.jpg"/>
     <p>
         The global food system is a major contributor to climate change, responsible for up to
         <a target="_blank" href="https://www.science.org/doi/10.1126/science.aaq0216">
@@ -16,7 +29,8 @@ const pageTitle = "About | Ligher Foodprint"
     <h2>The Why</h2>
     <section>
         <h3>Impact of Food Choices on the Climate</h3>
-        <p>Food production accounts for over a quarter of global greenhouse gas emissions, 
+        <p>Food production accounts for over 
+            <a href="https://parrot-turkey-lr7h.squarespace.com/about" target="_blank">a quarter of global greenhouse gas emissions</a>, 
             and half of the world’s habitable (ice and desert-free) land is used for agriculture. 
             The urgency of the climate crisis and the significant impact that food has on greenhouse 
             gas emissions means that food services and consumers have an important role to play in their 
@@ -29,12 +43,41 @@ const pageTitle = "About | Ligher Foodprint"
                 (The Carbon Trust, 2020).
             </a>              
         </p>
+        <img src="/aboutpagechart1.png" alt="">
         <p>
             We believe the value of carbon labelling can 
             extend to restaurant menus too. Our vision is that the resulting shift in demand away from carbon-intensive 
             foods will lead to food services offering more low-carbon alternatives. Other restaurants around the 
-            world are starting to put climate labels on their food, such as Chipotle and Just Salad. Now is 
+            world are starting to put climate labels on their food, such as 
+            <a href="https://newsroom.chipotle.com/2020-10-26-Chipotle-Launches-Real-Foodprint-Introduces-Sustainability-Impact-Trackers-For-Digital-Orders" target="_blank">Chipotle</a> 
+            and <a href="https://justsalad.com/carbonlabel" target="_blank">Just Salad</a>. Now is 
             the perfect time to get ahead!  
         </p>
     </section>
+    <section>
+        <h3>Importance of Sustainability in Business</h3>
+        <p>Incorporating sustainability into your business model isn’t only great for the environment - 
+            it is also becoming widely accepted as a necessity for long-term business success. Today’s 
+            consumer wants to know where their food comes from, how it was produced, and, increasingly, 
+            what sustainability factors were included in the process. According to the 
+            <a href="https://nielseniq.com/global/en/" target="_blank">Nielsen Company</a>, 
+            74% of Millennials and 72% of Gen-Z consumers are willing to pay more for sustainable products 
+            and services.
+        </p>
+        <img src="/aboutpageimg1.jpg" alt="">
+        <p>
+            By implementing climate labels, we can help your business turn sustainability into a viable brand 
+            strategy for more sustainability-minded audiences, increasing your presence in the community, and 
+            improving long-term sales. With sufficient foresight, these can become opportunities to lead by 
+            example and become trend setters in the industry. Responding to heightened social, governmental, and 
+            consumer attention on the broader impact of the environment nowadays demonstrates how a more sustainable 
+            business model is a competitive advantage. It’s a win-win for you, our community, and for the environment.
+        </p>
+    </section>
+    <Hero headline="Lighter Foodprint's New Low THreshold" 
+        subheadline = "New threshold for 2022: 1.1461 kgCO2e" 
+        description = "Read more about our methodology on our blog"/>
+
+    <h2>Our Team</h2>
+    <StoryblokComponent blok={content} />
 </BaseLayout>
