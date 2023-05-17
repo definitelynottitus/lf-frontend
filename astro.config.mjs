@@ -20,9 +20,7 @@ export default defineConfig({
       // Choose your Storyblok space region
       region: 'us' // optional,  or 'eu' (default)
     }
-  }), tailwind({
-    config: { applyBaseStyles: false },
-  })],
+  }), tailwind()],
   vite: {
     plugins: [basicSsl()],
     server: {

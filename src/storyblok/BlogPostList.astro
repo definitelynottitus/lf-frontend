@@ -21,7 +21,7 @@ const posts = data.stories.map(story => {
 const { blok } = Astro.props
 ---
 
-<ul {...storyblokEditable(blok)}>
+<ul class="list-none pl-0" {...storyblokEditable(blok)}>
   {posts.map(post => (
     <li>
       <h4><a href={`../${post.slug}`}>{post.title}</a></h4>
