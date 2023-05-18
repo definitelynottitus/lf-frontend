@@ -2,7 +2,7 @@
 
 @layer base {
   a {
-    @apply underline-offset-4 hover:font-bold;
+    @apply underline-offset-4 hover:bg-green-400;
   }
 }
 
@@ -29,7 +29,6 @@ html {
 
   a {
     color:#000000;
-    font-weight: normal;
   }
 
 /* nav styles */
