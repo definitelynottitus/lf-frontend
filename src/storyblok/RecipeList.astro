@@ -1,0 +1,30 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi();
+
+const { data } = await storyblokApi.get('cdn/stories', {
+  version: import.meta.env.DEV ? "draft" : "published",
+  content_type: 'recipe',
+})
+
+const posts = data.stories.map(story => {
+  return {
+    title: story.content.title,
+    thumbnail: story.content.thumbnail?.filename,
+    slug: story.full_slug,
+  }
+})
+
+const { blok } = Astro.props
+---
+
+<ul class="list-none pl-0" {...storyblokEditable(blok)}>
+  {posts.map(post => (
+    <li>
+      <img src={post.thumbnail} alt="">
+      <h4><a href={`../${post.slug}`}>{post.title}</a></h4>
+    </li>
+  ))}
+</ul>

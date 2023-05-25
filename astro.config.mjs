@@ -15,6 +15,8 @@ export default defineConfig({
       blogpostlist: 'storyblok/BlogPostList',
       page: 'storyblok/Page',
       employeelist: 'storyblok/Employee',
+      recipes: 'storyblok/RecipeList',
+      recipe: 'storyblok/Recipe',
     },
     apiOptions: {
       // Choose your Storyblok space region
