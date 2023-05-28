@@ -17,6 +17,8 @@ export default defineConfig({
       employeelist: 'storyblok/Employee',
       recipes: 'storyblok/RecipeList',
       recipe: 'storyblok/Recipe',
+      sponsor: 'storyblok/Sponsor',
+      grid: 'storyblok/Grid',
     },
     apiOptions: {
       // Choose your Storyblok space region

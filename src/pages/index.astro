@@ -1,6 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
 const pageTitle = "Lighter Foodprint"
+const storyblokApi = useStoryblokApi();
+const {data} = await storyblokApi.get("cdn/stories/sponsor-layout", {
+    version: import.meta.env.DEV ? "draft" : "published",
+  });
+const story = data.story
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -11,4 +19,6 @@ const pageTitle = "Lighter Foodprint"
 		it through in-store labels with the mission to empower consumers to make more sustainable and informed 
 		food choices.
 	</p>
+	<h2>Proudly Supported By</h2>
+	<StoryblokComponent blok={story.content} />
 </BaseLayout>
