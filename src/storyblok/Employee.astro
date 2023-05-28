@@ -22,10 +22,10 @@ const employees = data.stories.map(story => {
 const { blok } = Astro.props
 ---
 
-<ul class="list-none flex pl-0" {...storyblokEditable(blok)}>
+<ul class="list-none pl-0 container mx-auto grid md:grid-cols-3 gap-12 my-12 place-items-center" {...storyblokEditable(blok)}>
     {employees.map( employee => (
         <li class="p-2">
-            <img src={employee.employee_photo} alt="" width="200" height="200">
+            <img src={employee.employee_photo} alt="" class="w-full h-full object-cover">
             <div>
                 <h3>{employee.employee_name}</h3>
                 <a href={employee.social_media_url} target="_blank">{employee.social_media_platform}</a>

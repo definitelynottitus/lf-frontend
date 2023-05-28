@@ -5,7 +5,7 @@ const { blok } = Astro.props
 ---
 
 <div {...storyblokEditable(blok)}>
-    <a href={blok.sponsor_page_url.url} target="_blank" rel="noopener noreferrer">
+    <a href={blok.sponsor_page_url.url} target="_blank" rel="noopener noreferrer" class="hover:bg-white">
         <img src={blok.sponsor_logo.filename} alt="" class="object-contain h-48 w-64 lg:w-96">
     </a>
 </div>

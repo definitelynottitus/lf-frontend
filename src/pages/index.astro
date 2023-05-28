@@ -12,13 +12,14 @@ const story = data.story
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h1>We bring transparency to the table.</h1>
-	<p>
+	<h1 class="text-3xl md:text-4xl">We bring transparency to the table.</h1>
+	<p class="font=semibold text-lg">
 		Through research, data, and educational content, we help food services reduce their climate impact 
 		through a climate labelling system. We calculate the carbon intensity of each menu item and communicate
 		it through in-store labels with the mission to empower consumers to make more sustainable and informed 
 		food choices.
 	</p>
+	<button class="bg-green-400 hover:bg-green-700 text-white font-bold py-2 px-4 rounded border-0 h-10 w-40 text-lg">Join Us</button>
 	<h2>Proudly Supported By</h2>
 	<StoryblokComponent blok={story.content} />
 </BaseLayout>

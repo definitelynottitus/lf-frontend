@@ -16,16 +16,19 @@ const pageTitle = "About | Ligher Foodprint"
 
 <BaseLayout pageTitle = {pageTitle}>
     <Hero 
-        headline="Our mission is to integrate the climate into our everyday food choices." 
-        img="/aboutpagehero1.jpg"/>
-    <p>
-        The global food system is a major contributor to climate change, responsible for up to
-        <a target="_blank" href="https://www.science.org/doi/10.1126/science.aaq0216">
-            a quarter of global greenhouse gas emissions.
-        </a>  
-        That is why our food choices matter when it comes to reducing global emissions. 
-        We envision a world where we produce, consume and compost food in a sustainable manner. 
-    </p>
+        headline="Our mission is to integrate the climate into our everyday food choices."
+        description=""
+        img="/aboutpagehero1.jpg">
+        <p class="hidden md:inline">
+            The global food system is a major contributor to climate change, responsible for up to
+            <a target="_blank" href="https://www.science.org/doi/10.1126/science.aaq0216">
+                a quarter of global greenhouse gas emissions.
+            </a>  
+            That is why our food choices matter when it comes to reducing global emissions. 
+            We envision a world where we produce, consume and compost food in a sustainable manner. 
+        </p>
+    </Hero>
+    
     <h2>The Why</h2>
     <section>
         <h3>Impact of Food Choices on the Climate</h3>
@@ -43,7 +46,7 @@ const pageTitle = "About | Ligher Foodprint"
                 (The Carbon Trust, 2020).
             </a>              
         </p>
-        <img src="/aboutpagechart1.png" alt="">
+        <img src="/aboutpagechart1.png" alt="" class="w-full h-full md:w-2/3">
         <p>
             We believe the value of carbon labelling can 
             extend to restaurant menus too. Our vision is that the resulting shift in demand away from carbon-intensive 
@@ -64,7 +67,7 @@ const pageTitle = "About | Ligher Foodprint"
             74% of Millennials and 72% of Gen-Z consumers are willing to pay more for sustainable products 
             and services.
         </p>
-        <img src="/aboutpageimg1.jpg" alt="">
+        <img src="/aboutpageimg1.jpg" alt="" class="w-full h-full md:w-1/2">
         <p>
             By implementing climate labels, we can help your business turn sustainability into a viable brand 
             strategy for more sustainability-minded audiences, increasing your presence in the community, and 
@@ -74,9 +77,10 @@ const pageTitle = "About | Ligher Foodprint"
             business model is a competitive advantage. It’s a win-win for you, our community, and for the environment.
         </p>
     </section>
-    <Hero headline="Lighter Foodprint's New Low Threshold" 
-        subheadline = "New threshold for 2022: 1.1461 kgCO2e" 
-        description = "Read more about our methodology on our blog"/>
+    <Hero headline="Lighter Foodprint's New Low Threshold">
+        <h3>New threshold for 2022: 1.1461 kgCO2e</h3>
+        <p>Read more about our methodology on our blog</p>
+    </Hero>
 
     <h2>Our Team</h2>
     <StoryblokComponent blok={content} />

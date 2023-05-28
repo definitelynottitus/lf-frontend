@@ -64,7 +64,7 @@ html {
   text-transform: uppercase;
 }
 
-.nav-links a:hover, a:focus {
+.nav-links a:hover {
   background-color: #ff9776;
 }
 
