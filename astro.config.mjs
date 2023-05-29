@@ -3,6 +3,7 @@ import basicSsl from '@vitejs/plugin-basic-ssl';
 import storyblok from '@storyblok/astro';
 import { loadEnv } from 'vite';
 import tailwind from "@astrojs/tailwind";
+import react from "@astrojs/react";
 const env = loadEnv("", process.cwd(), 'STORYBLOK');
 
 
@@ -19,12 +20,13 @@ export default defineConfig({
       recipe: 'storyblok/Recipe',
       sponsor: 'storyblok/Sponsor',
       grid: 'storyblok/Grid',
+      faq: 'storyblok/Faq',
     },
     apiOptions: {
       // Choose your Storyblok space region
       region: 'us' // optional,  or 'eu' (default)
     }
-  }), tailwind()],
+  }), tailwind(), react()],
   vite: {
     plugins: [basicSsl()],
     server: {

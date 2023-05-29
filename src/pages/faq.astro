@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { useStoryblokApi } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+
+const storyblokApi = useStoryblokApi();
+const {data} = await storyblokApi.get("cdn/stories/faq", {
+    version: import.meta.env.DEV ? "draft" : "published",
+  });
+const story = data.story
+const pageTitle = "FAQ | Ligher Foodprint"
+---
+
+<BaseLayout pageTitle = {pageTitle}>
+    <StoryblokComponent blok={story.content} />
+</BaseLayout>

@@ -1,0 +1,10 @@
+---
+import { storyblokEditable } from '@storyblok/astro';
+import AccordionItem from '../components/AccordionItem.jsx';
+
+const { blok } = Astro.props
+---
+
+<main {...storyblokEditable(blok)}>
+    <AccordionItem content ={blok.content}  client:load/>
+</main>
