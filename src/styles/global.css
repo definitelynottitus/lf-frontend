@@ -2,7 +2,7 @@
 
 @layer base {
   a {
-    @apply underline-offset-4 hover:bg-green-400;
+    @apply underline-offset-4 hover:bg-green-400 text-black;
   }
 }
 
@@ -13,7 +13,7 @@ html {
   body {
     margin: 0 auto;
     width: 100%;
-    max-width: 140ch;
+    max-width: 160ch;
     padding: 1rem;
     line-height: 1.5;
   }
@@ -27,9 +27,6 @@ html {
     font-size: 2.5rem;
   }
 
-  a {
-    color:#000000;
-  }
 
 /* nav styles */
 .hamburger {

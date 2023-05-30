@@ -1,7 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import HeroLayout from "../layouts/HeroLayout.astro";
 
+const pageTitle = "Services | Ligher Foodprint";
+const headline = "Our Services"
 ---
-<BaseLayout>
-    <p>TBD</p>
+<BaseLayout pageTitle = {pageTitle}>
+    <HeroLayout headline = {headline}>
+        <p>We provide educational workshops, menu consultation, and climate labeling services to promote sustainability. Our workshops connect climate change and food, while our menu consultation makes sustainable choices easier. With climate labeling, customers can make informed, planet-friendly decisions and see your commitment to a sustainable future.</p>
+    </HeroLayout>
 </BaseLayout>
