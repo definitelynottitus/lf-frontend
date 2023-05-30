@@ -1,8 +1,8 @@
 ---
-import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 import { useStoryblokApi } from '@storyblok/astro'
+import HeroLayout from '../layouts/HeroLayout.astro';
 
 const storyblokApi = useStoryblokApi();
 const { data } = await storyblokApi.get('cdn/stories/employee/home', {
@@ -12,22 +12,20 @@ const { data } = await storyblokApi.get('cdn/stories/employee/home', {
 const content = data.story.content;
 
 const pageTitle = "About | Ligher Foodprint"
+const missionStatement = "Our mission is to integrate the climate into our everyday food choices."
 ---
 
 <BaseLayout pageTitle = {pageTitle}>
-    <Hero 
-        headline="Our mission is to integrate the climate into our everyday food choices."
-        description=""
-        img="/aboutpagehero1.jpg">
-        <p class="hidden md:inline">
+    <HeroLayout headline = {missionStatement} background = "bg-hero-pattern-1">
+        <p>
             The global food system is a major contributor to climate change, responsible for up to
-            <a target="_blank" href="https://www.science.org/doi/10.1126/science.aaq0216">
+            <a target="_blank" href="https://www.science.org/doi/10.1126/science.aaq0216" class="no-underline font-bold text-gray-100">
                 a quarter of global greenhouse gas emissions.
             </a>  
             That is why our food choices matter when it comes to reducing global emissions. 
             We envision a world where we produce, consume and compost food in a sustainable manner. 
         </p>
-    </Hero>
+    </HeroLayout>
     
     <h2>The Why</h2>
     <section>
@@ -77,10 +75,11 @@ const pageTitle = "About | Ligher Foodprint"
             business model is a competitive advantage. It’s a win-win for you, our community, and for the environment.
         </p>
     </section>
-    <Hero headline="Lighter Foodprint's New Low Threshold">
+
+    <HeroLayout headline = "Lighter Foodprint's New Low Threshold">
         <h3>New threshold for 2022: 1.1461 kgCO2e</h3>
-        <p>Read more about our methodology on our blog</p>
-    </Hero>
+        <p>Read more about our methodology on our <a href="/blog" class="no-underline font-bold text-gray-100">blog</a></p>
+    </HeroLayout>
 
     <h2>Our Team</h2>
     <StoryblokComponent blok={content} />
