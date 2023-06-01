@@ -5,8 +5,14 @@ import Navigation from "./Navigation.astro";
 ---
 
 <header>
-    <nav>
-        <Hamburger/>
-        <Navigation/>
+    <nav class="bg-white px-4 lg:px-6 py-2.5">
+        <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-2xl">
+            <a href="/" class="flex items-center no-underline hover:bg-transparent">
+                <img src="/LF-Logo.png" alt="Lighter Foodprint Logo" class="h-6 sm:h-9 mr-3">
+                <span class="self-center text-xl font-semibold whitespace-nowrap">Lighter Foodprint</span>
+            </a>
+            <Hamburger/>
+            <Navigation/>
+        </div>
     </nav>
 </header>

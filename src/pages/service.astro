@@ -1,12 +1,17 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import HeroLayout from "../layouts/HeroLayout.astro";
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+import { useStoryblokApi } from '@storyblok/astro'
+
+const storyblokApi = useStoryblokApi();
+const { data } = await storyblokApi.get('cdn/stories/service/service-feature', {
+  version: import.meta.env.DEV ? "draft" : "published",
+});
+
+const content = data.story.content;
 
 const pageTitle = "Services | Ligher Foodprint";
-const headline = "Our Services"
 ---
 <BaseLayout pageTitle = {pageTitle}>
-    <HeroLayout headline = {headline}>
-        <p>We provide educational workshops, menu consultation, and climate labeling services to promote sustainability. Our workshops connect climate change and food, while our menu consultation makes sustainable choices easier. With climate labeling, customers can make informed, planet-friendly decisions and see your commitment to a sustainable future.</p>
-    </HeroLayout>
+    <StoryblokComponent blok={content} />
 </BaseLayout>

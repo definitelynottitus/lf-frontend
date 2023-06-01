@@ -1,0 +1,28 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
+ 
+const { blok } = Astro.props
+---
+ 
+<section {...storyblokEditable(blok)}>
+    <div class="py-8 px-4 mx-auto max-w-screen-2xl sm:py-16 lg:px-6">
+        <div class="space-y-8 md:grid md:grid-cols-2 md:gap-12 md:space-y-0">
+            <img src={blok.image.filename} alt="landing page image" class="place-self-center w-3/4 rounded-lg block mx-auto">
+            <div class="mx-4">
+                <div>
+                    <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-gray-900">{blok.title}</h2>
+                    <p class="text-gray-500 sm:text-xl">{blok.description}</p>
+                </div>
+                <hr>
+                <ul class="list-none pl-0">
+                    {
+                        blok.items?.map((blok) => {
+                        return <StoryblokComponent blok={blok} />
+                        })
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>

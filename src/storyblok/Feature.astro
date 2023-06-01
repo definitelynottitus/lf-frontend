@@ -1,0 +1,18 @@
+---
+import { storyblokEditable } from '@storyblok/astro'
+ 
+ const { blok } = Astro.props
+ ---
+
+<div {...storyblokEditable(blok)}>
+    <div class="flex justify-between">
+        <div class="flex justify-center items-center w-10 h-10 lg:h-12 lg:w-12 mx-4">
+            <img src={blok.icon.filename} alt="icons" class="w-5 h-5 lg:w-6 lg:h-6">
+        </div>
+        <div>
+            <h3 class="my-2 text-2xl font-bold">{blok.name}</h3>
+            <p class="text-gray-500">{blok.description}</p>
+            <a href={blok.url.cached_url}>Learn more</a>
+        </div>
+    </div>
+</div> 

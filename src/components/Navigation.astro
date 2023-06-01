@@ -1,9 +1,19 @@
 ---
+const items = [
+    {name : "Home", link: "/"},
+    {name : "Service", link: "/service/"},
+    {name : "Blog", link: "/blog/"},
+    {name : "Recipes", link: "/recipe/"},
+    {name : "About", link: "/about/"},
+];
 ---
-<div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/service">Service</a>
-    <a href="/blog/">Blog</a>
-    <a href="/recipe/">Recipes</a>
-    <a href="/about/">About</a>
+<div class="basis-full h-0 md:basis-0"></div>
+<div class="mobile-menu hidden basis-full md:basis-auto md:flex items-center justify-between md:w-auto">
+    <ul class="list-none pl-0 flex flex-col mt-4 font-medium md:flex-row md:space-x-8 md:m-0">
+        {items.map(item => (
+            <li>
+                <a href={item.link} class="no-underline block py-2 pr-4 pl-3 text-gray-700 border-solid border-0 border-b border-gray-200 hover:text-orange-400 hover:bg-orange-200 md:hover:bg-transparent md:border-0 md:p-0">{item.name}</a>
+            </li>
+        ))}
+    </ul>
 </div>

@@ -21,6 +21,8 @@ export default defineConfig({
       sponsor: 'storyblok/Sponsor',
       grid: 'storyblok/Grid',
       faq: 'storyblok/Faq',
+      feature: 'storyblok/Feature',
+      featureV1: 'storyblok/FeatureV1',
     },
     apiOptions: {
       // Choose your Storyblok space region
