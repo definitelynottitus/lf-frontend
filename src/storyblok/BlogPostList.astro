@@ -14,6 +14,7 @@ const posts = data.stories.map(story => {
     title: story.content.title,
     date: story.content.date,
     description: story.content.description,
+    thumbnail: story.content.thumbnail?.filename,
     slug: story.full_slug,
   }
 })
@@ -21,12 +22,23 @@ const posts = data.stories.map(story => {
 const { blok } = Astro.props
 ---
 
-<ul class="list-none pl-0" {...storyblokEditable(blok)}>
-  {posts.map(post => (
-    <li>
-      <h4><a href={`../${post.slug}`}>{post.title}</a></h4>
-      <time>{new Date(post.date).toDateString()}</time>
-      <p>{post.description}</p>
-    </li>
-  ))}
-</ul>
+<section class="mx-auto px-4 lg:px-0">
+  <div class="flex flex-col items-center gap-20 py-8 lg:p-12 xl:p-20">
+    <ul class="list-none pl-0 flex max-w-screen-md flex-col gap-y-4 md:gap-y-6 lg:gap-y-8" {...storyblokEditable(blok)}>
+      {posts.map(post => (
+        <li>
+          <article class="border-solid border border-gray-100 bg-gray-200 p-5 transition-transform duration-300 ease-out focus-within:outline hover:scale-[1.03] outline-green-200">
+            <a href={`../${post.slug}`} class="block outline-none no-underline hover:bg-transparent">
+              <header><time class="text-gray-800">{new Date(post.date).toDateString()}</time></header>
+              <img src={post.thumbnail} alt={post.thumbnail} class="my-8 h-auto w-full" decoding="async">
+              <div class="mt-6 grid gap-y-4 gap-x-16 md:grid-cols-2">
+                <h3 class="text-3xl font-bold text-gray-600 m-0">{post.title}</h3>
+                <p class="text-gray-500 m-0">{post.description}</p>
+              </div>
+            </a>
+          </article>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
