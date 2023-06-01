@@ -4,7 +4,7 @@ import StoryblokComponent from '@storyblok/astro/StoryblokComponent.astro'
 const { blok } = Astro.props
 ---
 
-<main {...storyblokEditable(blok)}>
+<main {...storyblokEditable(blok)} class="mx-auto max-w-screen-2xl">
   {
     blok.body?.map((blok) => {
       return <StoryblokComponent blok={blok} />
