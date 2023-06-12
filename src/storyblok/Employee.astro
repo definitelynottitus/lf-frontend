@@ -21,7 +21,7 @@ const employees = data.stories.map(story => {
 
 const { blok } = Astro.props
 ---
-
+<h2>Our Team</h2>
 <ul class="list-none pl-0 container mx-auto grid md:grid-cols-3 gap-12 my-12 place-items-center" {...storyblokEditable(blok)}>
     {employees.map( employee => (
         <li class="p-2">

@@ -23,6 +23,8 @@ export default defineConfig({
       faq: 'storyblok/Faq',
       feature: 'storyblok/Feature',
       featureV1: 'storyblok/FeatureV1',
+      hiringpost: 'storyblok/HireListings',
+      hiringcategory: 'storyblok/HireCategory',
     },
     apiOptions: {
       // Choose your Storyblok space region
